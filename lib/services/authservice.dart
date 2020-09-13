@@ -7,7 +7,7 @@ class AuthService{
 
   login(name, password) async{
     try{
-      return await dio.post('https://heroku.com/authenticate', data: {
+      return await dio.post('https://my01-app.herokuapp.com/authenticate', data: {
         "name": name,
         "password": password,
       }, options: Options(contentType: Headers.formUrlEncodedContentType)
@@ -28,7 +28,7 @@ class AuthService{
   }
   register(name, password) async{
     try{
-      return await dio.post('https://heroku.com/authenticate', data: {
+      return await dio.post('https://my01-app.herokuapp.com/adduser', data: {
         "name": name,
         "password": password,
       }, options: Options(contentType: Headers.formUrlEncodedContentType)
@@ -50,7 +50,7 @@ class AuthService{
 
   getinfo(token) async{
     dio.options.headers['Authorization'] = 'Bearer $token';
-    return await dio.get('https://heroku.com/getinfo');
+    return await dio.get('https://my01-app.herokuapp.com/getinfo');
 
   }
 
